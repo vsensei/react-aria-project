@@ -1,0 +1,38 @@
+.textField {
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+
+  > label {
+    display: inline-block;
+    margin-bottom: var(--space-s);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-grey-800);
+  }
+
+  > input {
+    margin: 0;
+    border: var(--space-smallest) solid var(--color-grey-400);
+    border-radius: var(--border-radius-l);
+    box-sizing: border-box;
+    height: var(--space-xl);
+    padding: var(--space-s) var(--space-s) var(--space-s) var(--space-m);
+    background: var(--color-common-white);
+    font-size: var(--font-size-l);
+    line-height: var(--font-size-l);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-grey-600);
+
+    &[data-disabled] {
+      background-color: var(--color-grey-50);
+    }
+
+    &[data-hovered]:not([data-disabled]):not([data-focused]) {
+      border-color: var(--color-grey-500);
+    }
+
+    &[data-focused] {
+      border: var(--space-base) solid var(--color-primary-main);
+    }
+  }
+}
