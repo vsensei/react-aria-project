@@ -45,7 +45,16 @@ $transparent: var(--color-common-transparent);
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-medium);
 
-  &.justIcon {
+  &.hasLabelAndIcon {
+    padding-left: var(--space-xs);
+
+    &.reversed {
+      padding-left: var(--space-s);
+      padding-right: var(--space-xs);
+    }
+  }
+
+  &.hasOnlyIcon {
     width: var(--space-l);
     height: var(--space-l);
     padding: var(--space-xs);
@@ -64,19 +73,28 @@ $transparent: var(--color-common-transparent);
     line-height: var(--font-size-l);
     font-weight: var(--font-weight-semibold);
 
-    &.justIcon {
+    &.hasLabelAndIcon {
+      padding-left: var(--space-s);
+
+      &.reversed {
+        padding-left: var(--space-m);
+        padding-right: var(--space-s);
+      }
+    }
+
+    &.hasOnlyIcon {
       width: var(--space-xl);
       height: var(--space-xl);
       padding: var(--space-s);
     }
 
-    > span {
+    span {
       column-gap: var(--space-s);
     }
   }
 
   &.reversed {
-    > span {
+    span {
       flex-direction: row-reverse;
     }
   }

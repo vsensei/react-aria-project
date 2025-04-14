@@ -39,7 +39,11 @@ export default function ButtonComponent(args: {
   );
 
   if (!label && icon) {
-    classNames = [...classNames, styles.justIcon];
+    classNames = [...classNames, styles.hasOnlyIcon];
+  } else {
+    if (label && icon) {
+      classNames = [...classNames, styles.hasLabelAndIcon];
+    }
   }
 
   return (
@@ -50,7 +54,7 @@ export default function ButtonComponent(args: {
       type={type}
     >
       <span>
-        {icon && icon}
+        {icon}
         {label && <span>{label}</span>}
       </span>
     </Button>
