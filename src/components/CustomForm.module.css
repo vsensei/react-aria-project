@@ -1,0 +1,60 @@
+.form {
+  flex-direction: column;
+  display: flex;
+  border: var(--space-smallest) solid var(--color-grey-300);
+  border-radius: var(--border-radius-l);
+  box-sizing: border-box;
+  width: 22.938rem;
+  max-width: 100%;
+  height: 17.5rem;
+  padding: 2.5rem;
+  background-color: var(--color-common-white);
+
+  .textField {
+    width: 11.125rem;
+  }
+
+  .size {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    display: flex;
+    margin: var(--space-l) 0 var(--space-xl);
+    height: 3.25rem;
+
+    .number {
+      width: 6.5rem;
+
+      > div > div {
+        box-sizing: border-box;
+        height: 1.625rem;
+
+        > button {
+          width: var(--space-um);
+          height: var(--space-um);
+        }
+      }
+    }
+
+    .slider {
+      flex-direction: column;
+      justify-content: center;
+      align-self: flex-end;
+      display: flex;
+      box-sizing: border-box;
+      width: 10.938rem;
+      height: 1.625rem;
+      padding: 0 var(--space-s);
+    }
+  }
+
+  .buttons {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    display: flex;
+
+    > button {
+      width: 8.469rem;
+      height: var(--space-xl);
+    }
+  }
+}
