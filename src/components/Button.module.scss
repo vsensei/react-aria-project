@@ -1,0 +1,135 @@
+$transparent: var(--color-common-transparent);
+
+@mixin paintContainedButton(
+  $backColor,
+  $textColor,
+  $activeBackColor: $backColor,
+  $activeTextColor: $textColor
+) {
+  background-color: $backColor;
+  color: $textColor;
+
+  &[data-hovered],
+  &[data-focused],
+  &.forcedActive {
+    background-color: $activeBackColor;
+    color: $activeTextColor;
+  }
+}
+
+@mixin paintOutlinedButton(
+  $borderColor,
+  $textColor,
+  $activeBorderColor: $borderColor,
+  $activeTextColor: $textColor,
+  $activeBackColor: $transparent
+) {
+  background-color: $transparent;
+  color: $textColor;
+  border: var(--space-smallest) solid $borderColor;
+
+  &[data-hovered],
+  &[data-focused],
+  &.forcedActive {
+    background-color: $activeBackColor;
+    color: $activeTextColor;
+    border-color: $activeBorderColor;
+  }
+}
+
+.button {
+  transition: border-color 0.25s;
+  border-radius: var(--border-radius-l);
+  height: var(--space-l);
+  padding: var(--space-xs) var(--space-s);
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-medium);
+
+  &.justIcon {
+    width: var(--space-l);
+    height: var(--space-l);
+    padding: var(--space-xs);
+  }
+
+  > span {
+    display: inline-flex;
+    justify-content: center;
+    column-gap: var(--space-xs);
+  }
+
+  &.medium {
+    height: var(--space-xl);
+    padding: var(--space-s) var(--space-m);
+    font-size: var(--font-size-l);
+    line-height: var(--font-size-l);
+    font-weight: var(--font-weight-semibold);
+
+    &.justIcon {
+      width: var(--space-xl);
+      height: var(--space-xl);
+      padding: var(--space-s);
+    }
+
+    > span {
+      column-gap: var(--space-s);
+    }
+  }
+
+  &.reversed {
+    > span {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.contained {
+  &.primary {
+    @include paintContainedButton(
+      var(--color-primary-main),
+      var(--color-common-white),
+      var(--color-primary-dark),
+      var(--color-common-white)
+    );
+  }
+
+  &.secondary {
+    @include paintContainedButton(
+      var(--color-grey-200),
+      var(--color-common-black),
+      var(--color-grey-300),
+      var(--color-common-black)
+    );
+  }
+
+  &[data-disabled] {
+    @include paintContainedButton(var(--color-grey-200), var(--color-grey-500));
+    cursor: default;
+  }
+}
+
+.outlined {
+  &.primary {
+    @include paintOutlinedButton(
+      var(--color-primary-main),
+      var(--color-primary-main),
+      var(--color-primary-dark),
+      var(--color-primary-dark),
+      var(--color-primary-surface)
+    );
+  }
+
+  &.secondary {
+    @include paintOutlinedButton(
+      var(--color-grey-200),
+      var(--color-common-black),
+      var(--color-grey-300),
+      var(--color-common-black),
+      var(--color-common-transparent)
+    );
+  }
+
+  &[data-disabled] {
+    @include paintOutlinedButton(var(--color-grey-200), var(--color-grey-500));
+    cursor: default;
+  }
+}
