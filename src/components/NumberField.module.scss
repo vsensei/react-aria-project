@@ -13,17 +13,21 @@
   .group {
     gap: var(--space-s);
     display: flex;
-    border: var(--space-smallest) solid var(--color-grey-300);
+    border: var(--space-smallest) solid var(--color-grey-400);
     border-radius: var(--border-radius-m);
     padding: var(--space-base) var(--space-xxs);
     font-weight: var(--font-weight-semibold);
 
     &[data-focus-within] {
-      border-color: var(--color-common-black);
+      border-color: var(--color-grey-500);
     }
 
     &[data-disabled] {
       background-color: var(--color-grey-50);
+
+      > input {
+        background-color: var(--color-grey-50);
+      }
     }
 
     button {
