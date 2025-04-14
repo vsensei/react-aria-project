@@ -1,0 +1,5 @@
+@mixin change-svg-color($color) {
+  svg path {
+    fill: $color;
+  }
+}
