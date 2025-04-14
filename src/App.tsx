@@ -1,35 +1,103 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import CustomForm from './components/CustomForm';
+import NumberField from './components/NumberField';
+import Slider from './components/Slider';
+import Button from './components/Button';
+import TextField from './components/TextField';
+import PlusIcon from './icons/PlusIcon';
+import CrossIcon from './icons/CrossIcon';
 
-function App() {
-  const [count, setCount] = useState(0)
+import './App.css';
 
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='app'>
+      <CustomForm />
+      <div className='textFieldWrapper'>
+        <TextField label='Label' />
+        <TextField label='Label (disabled)' isDisabled />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className='numberFieldWrapper'>
+        <NumberField label='Label' />
+        <NumberField label='Label (disabled)' isDisabled />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <div className='sliderWrapper'>
+        <Slider />
+      </div>
+      <div className='table'>
+        <div className='column-small'>
+          <Button label='Button' />
+          <Button label='Button' isForcedActive={true} />
+          <Button label='Button' isDisabled={true} />
+          <Button label='Button' icon={<PlusIcon />} />
+          <Button label='Button' icon={<PlusIcon />} isReversed />
+          <Button icon={<PlusIcon />} />
+        </div>
+        <div className='column'>
+          <Button label='Button' isMedium={true} />
+          <Button label='Button' isForcedActive={true} isMedium={true} />
+          <Button label='Button' isDisabled={true} isMedium={true} />
+          <Button label='Button' icon={<PlusIcon />} isMedium={true} />
+          <Button
+            label='Button'
+            icon={<PlusIcon />}
+            isReversed={true}
+            isMedium={true}
+          />
+          <Button icon={<CrossIcon />} isMedium={true} />
+        </div>
+        <div className='column'>
+          <Button label='Button' isOutlined={true} isMedium={true} />
+          <Button
+            label='Button'
+            isOutlined={true}
+            isForcedActive={true}
+            isMedium={true}
+          />
+          <Button
+            label='Button'
+            isOutlined={true}
+            isDisabled={true}
+            isMedium={true}
+          />
+        </div>
+        <div className='column'>
+          <Button label='Button' isSecondary={true} isMedium={true} />
+          <Button
+            label='Button'
+            isSecondary={true}
+            isForcedActive={true}
+            isMedium={true}
+          />
+          <Button
+            label='Button'
+            isSecondary={true}
+            isDisabled={true}
+            isMedium={true}
+          />
+        </div>
+        <div className='column'>
+          <Button
+            label='Button'
+            isSecondary={true}
+            isOutlined={true}
+            isMedium={true}
+          />
+          <Button
+            label='Button'
+            isSecondary={true}
+            isOutlined={true}
+            isForcedActive={true}
+            isMedium={true}
+          />
+          <Button
+            label='Button'
+            isSecondary={true}
+            isOutlined={true}
+            isDisabled={true}
+            isMedium={true}
+          />
+        </div>
+      </div>
+    </div>
+  );
 }
-
-export default App
