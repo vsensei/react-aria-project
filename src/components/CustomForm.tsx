@@ -38,7 +38,7 @@ export default function CustomForm() {
             label='Size (GB)'
             minValue={minValue}
             maxValue={maxValue}
-            defaultValue={fileSize}
+            value={fileSize}
             setValue={setFileSize}
           />
         </div>
